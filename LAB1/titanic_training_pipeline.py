@@ -15,10 +15,6 @@ if LOCAL == False:
 def g():
     import hopsworks
     import pandas as pd
-    #from sklearn.ensemble import GradientBoostingClassifier 
-    #from sklearn.ensemble import GradientBoostingRegressor
-    #from sklearn import tree # using decision tree algorithm
-    #from sklearn.neighbors import KNeighborsClassifier
     from sklearn.ensemble import RandomForestClassifier
     from sklearn.metrics import accuracy_score
     from sklearn.metrics import confusion_matrix
@@ -70,7 +66,7 @@ def g():
     mr = project.get_model_registry()
     
     # The contents of the 'titanic_model' directory will be saved to the model registry. Create the dir, first.
-    model_dir="titanic_survival_modal"
+    model_dir="titanic_modal"
     if os.path.isdir(model_dir) == False:
         os.mkdir(model_dir)
 
