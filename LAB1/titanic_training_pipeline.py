@@ -66,14 +66,13 @@ def g():
     mr = project.get_model_registry()
     
     # The contents of the 'titanic_model' directory will be saved to the model registry. Create the dir, first.
-    model_dir="titanic_modal"
+    model_dir="./LAB1/titanic_model"
     if os.path.isdir(model_dir) == False:
         os.mkdir(model_dir)
 
     # Save both our model and the confusion matrix to 'model_dir', whose contents will be uploaded to the model registry
     joblib.dump(model, model_dir + "/titanic_model.pkl")
     fig.savefig(model_dir + "/confusion_matrix.png")    
-
 
     # Specify the schema of the model's input/output using the features (X_train) and labels (y_train)
     input_schema = Schema(X_train)
