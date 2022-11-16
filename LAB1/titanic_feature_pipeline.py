@@ -19,7 +19,7 @@ def g():
     fs = project.get_feature_store()
     titanic_df = pd.read_csv("https://raw.githubusercontent.com/NeoForNew/ID2223_scalable_machine_learning_and_deep_learning/main/LAB1/titanic_data_cleaned.csv") 
     titanic_fg = fs.get_or_create_feature_group(
-        name="titanic_survival_modal",
+        name="titanic_modal",
         version=1,
         primary_key=["pclass","sex","age","sibsp","parch","embarked","fare_per_customer","cabin"], 
         description="Titanic Survival Dataset")
