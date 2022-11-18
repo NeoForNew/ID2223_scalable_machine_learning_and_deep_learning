@@ -1,0 +1,2 @@
+"pclass, ","gender, 0 for male and 1 for female",age,sibsp,parch,"embarked, 1 for C, 2 for S, 3 for Q, and 0 for unknown",fare_per_customer,"cabin, 1 for the known and 0 for the unknown",output,flag,username,timestamp
+1,1,1,1,1,1,1,1,,,,2022-11-17 20:41:49.690771
