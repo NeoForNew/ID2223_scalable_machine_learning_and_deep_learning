@@ -38,7 +38,7 @@ def g():
 
     survival = y_pred[y_pred.size - 1]
 
-    survival_url = "https://raw.githubusercontent.com/ponyyuhan/ID2223_ML_lab1/main/"+survival+".png"
+    survival_url = "https://raw.githubusercontent.com/NeoForNew/ID2223_scalable_machine_learning_and_deep_learning/main/LAB1/"+survival+".png"
     img = Image.open(requests.get(survival_url, stream=True).raw)
     img.save("./latest_titanic.png")
     dataset_api = project.get_dataset_api()
@@ -48,7 +48,7 @@ def g():
     df = titanic_fg.read()
     # print(df["Survived"])
     label = df.iloc[-1]["survived"]
-    label_url = "https://raw.githubusercontent.com/ponyyuhan/ID2223_ML_lab1/main/"+label+".png"
+    label_url = "https://raw.githubusercontent.com/NeoForNew/ID2223_scalable_machine_learning_and_deep_learning/main/LAB1/"+label+".png"
     img = Image.open(requests.get(label_url, stream=True).raw)            
     img.save("./actual_titanic.png")
     dataset_api.upload("./actual_titanic.png", "Resources/images", overwrite=True)
