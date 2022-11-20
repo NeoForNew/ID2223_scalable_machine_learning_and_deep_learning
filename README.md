@@ -8,5 +8,5 @@ gnments/lab1/titanic.csv
 4. Write a Gradio application that downloads your model from Hopsworks and provides a User Interface to allow users to enter or select feature values to predict if a passenger with the provided features would survive or not.
 5. Write a synthetic data passenger generator and update your feature pipeline to allow it to add new synthetic passengers.
 6. Write a batch inference pipeline to predict if the synthetic passengers survived or not, and build a Gradio application to show the most recent synthetic passenger pre
-### install dependency
+### Install dependencies
 `pip install -r requirements.txt`
