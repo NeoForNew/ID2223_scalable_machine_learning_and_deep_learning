@@ -41,7 +41,7 @@ def get_random_titanic():
 
     survived_df = generate_titanic("S", 1, 4, 0, 2, 30, 0, 0, 5,0,6,1,4,0,200,0,2)
     deceased_df = generate_titanic("D", 1, 4, 0, 2, 80, 50, 0, 5,0,6,1,4,0,200,0,2)
-
+    # randomly pick one of these 2 and write it to the featurestore
     pick_random = random.uniform(0,2)
     if pick_random >= 1:
         titanic_df = survived_df
