@@ -66,7 +66,7 @@ def g():
     mr = project.get_model_registry()
     
     # The contents of the 'titanic_model' directory will be saved to the model registry. Create the dir, first.
-    model_dir="./LAB1/titanic_model"
+    model_dir="/home/neo/ID2223/Lab1/titanic/code/titanic_model"
     if os.path.isdir(model_dir) == False:
         os.mkdir(model_dir)
 
