@@ -43,4 +43,11 @@ The evaluation metric is configured as word error rate (WER) and the pretrained 
 
 With the trained model, we uploaded it to [Hugging face Model](https://huggingface.co/NeoonN/ID2223_Lab2_Whisper/tree/main) and created a [Hugging face interactive UI](https://huggingface.co/spaces/NeoonN/id2223). The application design is available in [huggingface-spaces-whisper/app.py](https://huggingface.co/spaces/NeoonN/id2223/blob/main/app.py). Users can click on the Record from microphone button to start speaking in Chinese and click on Stop recording when finished speaking. After clicking on Submit for a while(less than 30s), the spoken words will be shown on the output box to the right.
 
-
+### Debug hints
+`trainer.push_to_hub(**kwargs)`
+```
+OSError: Tried to clone a repository in a non-empty folder that isn't a git repository. If you really want to do this, do it manually:
+git init && git remote add origin && git pull origin main
+ or clone repo to a new folder and move your existing files there afterwards.
+```
+clone the repo on Huggingface and try again.
