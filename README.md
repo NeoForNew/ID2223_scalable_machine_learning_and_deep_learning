@@ -51,3 +51,4 @@ git init && git remote add origin && git pull origin main
  or clone repo to a new folder and move your existing files there afterwards.
 ```
 clone the repo on Huggingface and try again.
+If it still doesn't work, mannually upload the model on Huggingface
