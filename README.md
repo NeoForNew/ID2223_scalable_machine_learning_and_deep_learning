@@ -1,6 +1,5 @@
-# ID2223
-## Lab1
-## Lab2
+# Lab1
+# Lab2
 Task 1: Fine-tune a model for language transcription, add a UI
 Fine-Tune a pre-trained transformer model and build a serverless UI for using that model
 ### First Steps
