@@ -55,6 +55,11 @@ Users can click on the Record from microphone button to start speaking in Chines
 ### Function 2
 Users can input a Youtube URL such as [this](https://www.youtube.com/watch?v=EX5hcbzZCow) and the audio of this youtube video will be transcribed into text- 我在北京（I am in Beijing）.
 
+##Performance improvement
+For model-centric approach, we can use the following methods:
+1.Use a larger model with more layers and train longer e.g. using whisper-medium or whisper-large. 
+2.Parameter can be selected using random search and grid search. Batch size, learning rate can be optimized and dropout can be applied.
+
 ### Debug hints
 `trainer.push_to_hub(**kwargs)`
 ```
