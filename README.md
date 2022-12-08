@@ -49,10 +49,11 @@ The evaluation metric is configured as word error rate (WER) and the pretrained 
 
 ## Interactive UI
 With the trained model, we uploaded it to [Hugging face Model](https://huggingface.co/NeoonN/ID2223_Lab2_Whisper/tree/main) and created a [Hugging face interactive UI](https://huggingface.co/spaces/NeoonN/Video_whisper). The application design is available in [huggingface-spaces-whisper/app.py](https://huggingface.co/spaces/NeoonN/id2223/blob/main/app.py).
+![image](https://github.com/NeoForNew/ID2223_scalable_machine_learning_and_deep_learning/blob/main/Lab2/ui.jpg)
 ### Function 1
 Users can click on the Record from microphone button to start speaking in Chinese and click on stop recording when finished speaking. After clicking on Submit for a while(less than 30s), the spoken words will be shown on the output box to the right.
 ### Function 2
-Users can input a Youtube URL and the audio of this youtube video will be transcribed into text.
+Users can input a Youtube URL such as [this](https://www.youtube.com/watch?v=EX5hcbzZCow) and the audio of this youtube video will be transcribed into text- 我在北京（I am in Beijing.
 
 ### Debug hints
 `trainer.push_to_hub(**kwargs)`
