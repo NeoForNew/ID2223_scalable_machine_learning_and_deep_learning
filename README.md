@@ -53,7 +53,7 @@ With the trained model, we uploaded it to [Hugging face Model](https://huggingfa
 ### Function 1
 Users can click on the Record from microphone button to start speaking in Chinese and click on stop recording when finished speaking. After clicking on Submit for a while(less than 30s), the spoken words will be shown on the output box to the right.
 ### Function 2
-Users can input a Youtube URL such as [this](https://www.youtube.com/watch?v=EX5hcbzZCow) and the audio of this youtube video will be transcribed into text- 我在北京（I am in Beijing.
+Users can input a Youtube URL such as [this](https://www.youtube.com/watch?v=EX5hcbzZCow) and the audio of this youtube video will be transcribed into text- 我在北京（I am in Beijing）.
 
 ### Debug hints
 `trainer.push_to_hub(**kwargs)`
