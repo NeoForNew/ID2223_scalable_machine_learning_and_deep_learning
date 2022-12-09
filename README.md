@@ -56,10 +56,12 @@ Users can click on the Record from microphone button to start speaking in Chines
 Users can input a Youtube URL such as [this](https://www.youtube.com/watch?v=EX5hcbzZCow) and the audio of this youtube video will be transcribed into text- 我在北京（I am in Beijing）.
 
 ## Performance improvement
+### model-centric approach
 For model-centric approach, we can use the following methods:
 1. Use a larger model with more layers and train longer e.g. using whisper-medium or whisper-large. 
 2. Parameter can be selected using random search and grid search. Batch size, learning rate can be optimized and dropout can be applied.
-
+### Data-centric Approaches
+For data-centric approaches, we use other public Chinese audio dataset on OpenSLR such as [THCHS-30](https://www.openslr.org/18/), [Free ST Chinese Mandarin Corpus](https://www.openslr.org/38/), [Primewords Chinese Corpus Set 1](https://www.openslr.org/47/), [aidatatang_200zh](https://openslr.org/62/), [MAGICDATA Mandarin Chinese Read Speech Corpus](https://openslr.org/68/).
 ### Debug hints
 `trainer.push_to_hub(**kwargs)`
 ```
