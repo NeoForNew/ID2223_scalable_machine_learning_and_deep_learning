@@ -22,7 +22,7 @@ def g():
     name="aurora_one",
     version=1,
     description="aurora data",
-    primary_key = ["Kp_index","cloudcover","visibility","clear-day","clear-night","cloudy","fog","partly-cloudy-day","partly-cloudy-night","rain","snow","wind","Clear","Overcast","Partially cloudy","Rain","Rain, Overcast","Rain, Partially cloudy","Snow","Snow, Overcast","Snow, Partially cloudy","Snow, Rain","Snow, Rain, Overcast","Snow, Rain, Partially cloudy"]
+    primary_key = ["Kp_index","cloudcover","visibility","clear-day","clear-night","cloudy","fog","partly-cloudy-day","partly-cloudy-night","rain","snows","wind","Clear","Overcast","Partially cloudy","Rain","Rain, Overcast","Rain, Partially cloudy","Snow","Snow, Overcast","Snow, Partially cloudy","Snow, Rain","Snow, Rain, Overcast","Snow, Rain, Partially cloudy"]
     )
     aurora_no_fg.insert(df_features_no_onehot,write_options={"wait_for_job" : False})
 
