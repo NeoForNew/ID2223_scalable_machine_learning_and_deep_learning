@@ -17,12 +17,12 @@ def g():
 
     project = hopsworks.login()
     fs = project.get_feature_store()
-    df_features_no_onehot = pd.read_csv("https://raw.githubusercontent.com/NeoForNew/ID2223_scalable_machine_learning_and_deep_learning/main/Project/df_Features_no_onehot.csv") 
+    df_features_no_onehot = pd.read_csv("https://raw.githubusercontent.com/NeoForNew/ID2223_scalable_machine_learning_and_deep_learning/main/Project/df_Features.csv") 
     aurora_no_fg = fs.get_or_create_feature_group(
-    name="aurora_batch_fg",
+    name="aurora_onehot",
     version=1,
     description="aurora data",
-    primary_key = ["kp_index", "cloudcover", "visibility", "icon", "conditions"],
+    primary_key = [],
     )
     aurora_no_fg.insert(df_features_no_onehot,write_options={"wait_for_job" : False})
 

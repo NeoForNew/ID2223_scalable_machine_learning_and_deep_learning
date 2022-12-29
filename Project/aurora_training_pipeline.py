@@ -13,6 +13,9 @@ if LOCAL == False:
 
 
 def g():
+    from sklearn.neighbors import KNeighborsClassifier
+    from sklearn.metrics import accuracy_score
+    from sklearn.metrics import roc_auc_score
     import hopsworks
     import pandas as pd
     from sklearn.ensemble import RandomForestClassifier
@@ -33,24 +36,21 @@ def g():
     # The feature view is the input set of features for your model. The features can come from different feature groups.    
     # You can select features from different feature groups and join them together to create a feature view
     try:  
-        feature_view = fs.get_feature_view(name="aurora_batch_fg", version=1)
+        feature_view = fs.get_feature_view(name="aurora_mod", version=1)
     except:
-        titanic_fg = fs.get_feature_group(name="aurora_batch_fg", version=1)
+        titanic_fg = fs.get_feature_group(name="aurora_mod", version=1)
         query = titanic_fg.select_all()
-        feature_view = fs.create_feature_view(name="aurora_batch_fg",
+        feature_view = fs.create_feature_view(name="aurora_mod",
                                           version=1,
                                           description="Read from titanic survival dataset",
-                                          labels=["aurora"],
+                                          labels=["Aurora_Label"],
                                           query=query)    
 
     # You can read training data, randomly split into train/test sets of features (X) and labels (y)        
     X_train, X_test, y_train, y_test = feature_view.train_test_split(0.2)
-
-    model = RandomForestClassifier(n_estimators=1000, max_depth=7, min_weight_fraction_leaf=0.00001)
-    model.fit(X_train, y_train.values.ravel())
-
-    # Evaluate model performance using the features from the test set (X_test)
-    y_pred = model.predict(X_test)
+    model = KNeighborsClassifier(n_neighbors=5)#默认为5
+    model.fit(X_train,y_train.values.ravel())
+    predicted = model.predict(y_test)
 
     # Compare predictions (y_pred) with the labels in the test set (y_test)
     metrics = classification_report(y_test, y_pred, output_dict=True)
