@@ -22,7 +22,7 @@ def g():
     name="aurora_batch_fg",
     version=1,
     description="aurora data",
-    primary_key = ["kp_index", "cloudcover", "visibility", "icon", "conditions"],
+    primary_key = ["aurora_label","kp_index", "cloudcover", "visibility", "icon", "conditions"],
     )
     aurora_no_fg.insert(df_features_no_onehot,write_options={"wait_for_job" : False})
 
