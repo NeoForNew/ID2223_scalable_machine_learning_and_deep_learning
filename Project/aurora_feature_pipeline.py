@@ -19,7 +19,7 @@ def g():
     fs = project.get_feature_store()
     df_features_no_onehot = pd.read_csv("https://raw.githubusercontent.com/NeoForNew/ID2223_scalable_machine_learning_and_deep_learning/main/Project/df_Features.csv") 
     aurora_no_fg = fs.get_or_create_feature_group(
-    name="aurora_onehot",
+    name="aurora_one",
     version=1,
     description="aurora data",
     primary_key = [],
