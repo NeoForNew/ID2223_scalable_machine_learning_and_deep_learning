@@ -1,4 +1,4 @@
-Aurora_Label,Kp_index,cloudcover,visibility,clear-day,clear-night,cloudy,fog,partly-cloudy-day,partly-cloudy-night,rains,snows,wind,Clear,Overcast,Partially cloudy,Rain,"Rain, Overcast","Rain, Partially cloudy",Snow,"Snow, Overcast","Snow, Partially cloudy","Snow, Rain","Snow, Rain, Overcast","Snow, Rain, Partially cloudy"
+Aurora_Label,Kp_index,cloudcover,visibility,clear-day,clear-night,cloudy,fog,partly-cloudy-day,partly-cloudy-night,rain1,snow1,wind,Clear,Overcast,Partially cloudy,Rain,"Rain, Overcast","Rain, Partially cloudy",Snow,"Snow, Overcast","Snow, Partially cloudy","Snow, Rain","Snow, Rain, Overcast","Snow, Rain, Partially cloudy"
 0.0,0.333,89.2,10.5,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0
 0.0,0.333,89.2,10.5,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,1,0,0,0
 0.0,1.333,89.2,10.9,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0
