@@ -41,7 +41,10 @@ def g():
     # You can select features from different feature groups and join them together to create a feature view
     aurora_fg = fs.get_feature_group(name="aurora_pred", version=1)
     query = aurora_fg.select_all()
-    feature_view = fs.create_feature_view(name="aurora_prediction",
+    try:  
+        feature_view = fs.get_feature_view(name="aurora_prediction", version=1)
+    except:
+        feature_view = fs.create_feature_view(name="aurora_prediction",
                                         version=1,
                                         description="Read from aurora dataset",
                                         labels=["aurora_label"],
@@ -62,7 +65,7 @@ def g():
     # Compare predictions (y_pred) with the labels in the test set (y_test)
     metrics = classification_report(y_test, y_pred, output_dict=True)
     print(accuracy_score(y_test, y_pred))
-
+    print(roc_auc_score(y_test, y_pred))
 
     # We will now upload our model to the Hopsworks Model Registry. First get an object for the model registry.
     mr = project.get_model_registry()
