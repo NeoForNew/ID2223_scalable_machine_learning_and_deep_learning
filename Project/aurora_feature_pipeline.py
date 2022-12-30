@@ -19,10 +19,10 @@ def g():
     fs = project.get_feature_store()
     df_features_no_onehot = pd.read_csv("https://raw.githubusercontent.com/NeoForNew/ID2223_scalable_machine_learning_and_deep_learning/main/Project/df_Features.csv") 
     aurora_no_fg = fs.get_or_create_feature_group(
-    name="aurora_onehot",
+    name="aurora_model",
     version=1,
     description="aurora data",
-    primary_key = ["Kp_index","cloudcover","visibility","clear-day","clear-night","cloudy","fog","partly-cloudy-day","partly-cloudy-night","rains","snows","wind","Clear","Overcast","Partially cloudy","Rain","Rain, Overcast","Rain, Partially cloudy","Snow","Snow, Overcast","Snow, Partially cloudy","Snow, Rain","Snow, Rain, Overcast","Snow, Rain, Partially cloudy"]
+    primary_key = ["aurora_label","Kp_index","cloudcover","visibility","clear_day","clear_night","cloudy","fog","partly_cloudy_day","partly_cloudy_night","rain1","snow1","wind","Clear","Overcast","Partially_cloudy","Rain","Rain_Overcast","Rain_Partially_cloudy","Snow","Snow_Overcast","Snow_Partially_cloudy","Snow_Rain","Snow_Rain_Overcast","Snow_Rain_Partially_cloudy"]
     )
     aurora_no_fg.insert(df_features_no_onehot,write_options={"wait_for_job" : False})
 
