@@ -39,9 +39,9 @@ def g():
 
     # The feature view is the input set of features for your model. The features can come from different feature groups.    
     # You can select features from different feature groups and join them together to create a feature view
-    aurora_fg = fs.get_feature_group(name="aurora_model", version=1)
+    aurora_fg = fs.get_feature_group(name="aurora_pred", version=1)
     query = aurora_fg.select_all()
-    feature_view = fs.create_feature_view(name="aurora_mods",
+    feature_view = fs.create_feature_view(name="aurora_prediction",
                                         version=1,
                                         description="Read from aurora dataset",
                                         labels=["aurora_label"],
