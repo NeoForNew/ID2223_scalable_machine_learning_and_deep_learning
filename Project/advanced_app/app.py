@@ -38,11 +38,13 @@ def tb_aurora(Kp_index,  visibility, icon):
     # 'res' is a list of predictions returned as the label.
     # global res
     res = model.predict(np.asarray(input_list).reshape(1, 11))
-    return ("This aurora will" + (" occur " if res[0] == 0 else " not occur"))
+    flower_url = "https://raw.githubusercontent.com/NeoForNew/ID2223_scalable_machine_learning_and_deep_learning/blob/main/Project/pic/" + str(res[0]) + ".jpg"
+    img = Image.open(requests.get(flower_url, stream=True).raw)
+    return img
 
 demo = gr.Interface(
     fn=tb_aurora,
-    title="aurora Predictive Analytics",
+    title="Aurora Predictive Analytics",
     description="Predict aurora 0 for not occur and 1 for occur. ",
     inputs=[
         gr.inputs.Number(default=0.0, label="Kp_index"),
@@ -50,6 +52,6 @@ demo = gr.Interface(
         gr.inputs.Dropdown(['clear_day', 'clear_night', 'cloudy', 'fog', 'partly_cloudy_day', 'partly_cloudy_night', 'rain',
                  'snow', 'wind'], label="icon"),
     ],
-    outputs=gr.Textbox()
-    )
+    outputs=gr.Image(type="pil"))
+    
 demo.launch()
