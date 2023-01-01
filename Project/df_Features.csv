@@ -1,4 +1,4 @@
-Aurora_Label,Kp_index,cloudcover,visibility,clear-day,clear-night,cloudy,fog,partly-cloudy-day,partly-cloudy-night,rain,snow,wind
+Aurora_Label,Kp_index,cloudcover,visibility,clear_day,clear_night,cloudy,fog,partly_cloudy_day,partly_cloudy_night,rain,snow,wind
 0,0.333,89.2,10.5,0,0,0,0,0,0,0,1,0
 0,0.333,89.2,10.5,0,0,0,0,0,0,0,1,0
 0,1.333,89.2,10.9,0,0,0,0,0,0,0,1,0

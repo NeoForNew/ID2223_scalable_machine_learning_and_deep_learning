@@ -19,7 +19,7 @@ def g():
     fs = project.get_feature_store()
     df_features_no_onehot = pd.read_csv("https://raw.githubusercontent.com/NeoForNew/ID2223_scalable_machine_learning_and_deep_learning/main/Project/df_Features.csv") 
     aurora_no_fg = fs.create_feature_group(
-    name="aurora_pre",
+    name="aurora_predict01",
     version=1,
     description="aurora data",
     primary_key = ["Kp_index","cloudcover","visibility","clear_day","clear_night","cloudy","fog","partly_cloudy_day","partly_cloudy_night","rain","snow","wind"]
