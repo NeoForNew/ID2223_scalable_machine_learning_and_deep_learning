@@ -39,12 +39,12 @@ def g():
 
     # The feature view is the input set of features for your model. The features can come from different feature groups.    
     # You can select features from different feature groups and join them together to create a feature view
-    aurora_fg = fs.get_feature_group(name="aurora_pred", version=1)
+    aurora_fg = fs.get_feature_group(name="aurora_prediction", version=1)
     query = aurora_fg.select_all()
     try:  
-        feature_view = fs.get_feature_view(name="aurora_prediction", version=1)
+        feature_view = fs.get_feature_view(name="aurora_pre", version=1)
     except:
-        feature_view = fs.create_feature_view(name="aurora_prediction",
+        feature_view = fs.create_feature_view(name="aurora_pre",
                                         version=1,
                                         description="Read from aurora dataset",
                                         labels=["aurora_label"],
@@ -74,7 +74,7 @@ def g():
     model_dir="/home/neo/ID2223/Project/aurora_model"
     if os.path.isdir(model_dir) == False:
         os.mkdir(model_dir)   
-
+    joblib.dump(model, model_dir + "/aurora_model.pkl")
     # Specify the schema of the model's input/output using the features (X_train) and labels (y_train)
     input_schema = Schema(X_train)
     output_schema = Schema(y_train)
