@@ -17,10 +17,9 @@ mr = project.get_model_registry()
 model = joblib.load("/home/neo/ID2223/Project/aurora_model/aurora_model.pkl")
 
 
-def tb_aurora(Kp_index, cloudcover, visibility, icon):
+def tb_aurora(Kp_index,  visibility, icon):
     input_list = []
     input_list.append(Kp_index)
-    input_list.append(cloudcover)
     input_list.append(visibility)
     input_icon = icon
 
@@ -38,7 +37,7 @@ def tb_aurora(Kp_index, cloudcover, visibility, icon):
 
     # 'res' is a list of predictions returned as the label.
     # global res
-    res = model.predict(np.asarray(input_list).reshape(1, 12))
+    res = model.predict(np.asarray(input_list).reshape(1, 11))
     return ("This aurora will" + (" occur " if res[0] == 0 else " not occur"))
 
 demo = gr.Interface(
@@ -47,7 +46,6 @@ demo = gr.Interface(
     description="Predict aurora 0 for not occur and 1 for occur. ",
     inputs=[
         gr.inputs.Number(default=0.0, label="Kp_index"),
-        gr.inputs.Number(default=0.0, label="cloudcover"),
         gr.inputs.Number(default=0.0, label="visibility"),
         gr.inputs.Dropdown(['clear_day', 'clear_night', 'cloudy', 'fog', 'partly_cloudy_day', 'partly_cloudy_night', 'rain',
                  'snow', 'wind'], label="icon"),
