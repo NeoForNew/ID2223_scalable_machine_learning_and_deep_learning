@@ -42,9 +42,9 @@ def g():
     aurora_fg = fs.get_feature_group(name="aurora_predict03", version=1)
     query = aurora_fg.select_all()
     try:  
-        feature_view = fs.get_feature_view(name="aurora_pre03", version=1)
+        feature_view = fs.get_feature_view(name="aurora_pre05", version=1)
     except:
-        feature_view = fs.create_feature_view(name="aurora_pre03",
+        feature_view = fs.create_feature_view(name="aurora_pre05",
                                         version=1,
                                         description="Read from aurora dataset",
                                         labels=["aurora_label"],
@@ -82,7 +82,7 @@ def g():
 
     # Create an entry in the model registry that includes the model's name, desc, metrics
     aurora_model = mr.python.create_model(
-        name="aurora_modal", 
+        name="aurora_model", 
         metrics={"accuracy" : metrics['accuracy']},
         model_schema=model_schema,
         description="Aurora Predictor"
