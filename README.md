@@ -71,3 +71,9 @@ git init && git remote add origin && git pull origin main
 ```
 clone the repo on Huggingface and try again.
 If it still doesn't work, mannually upload the model on Huggingface
+# Project
+## Description
+The project focus on using an ML model to predict if the aurora will occur in Kiruna based on Kp and the weather in Kiruna. Hopsworks is used to store the feature group in the CSV file and Huggingface is used to build the interactive App. We tried different machine learning models and the decision tree is selected as our final classier which achieves an accuracy of 0.91 and an AUC score of 0.72.
+## Interactive UI
+The UI is built using HuggingFace and Gradio API. The [app](https://github.com/NeoForNew/ID2223_scalable_machine_learning_and_deep_learning/blob/main/Project/advanced_app/app.py) uses KP and the weather condition as input and will output a picture to show if the aurora will occur.
+![image](https://github.com/NeoForNew/ID2223_scalable_machine_learning_and_deep_learning/blob/main/Project/pic/aurora_prediction.jpg)
