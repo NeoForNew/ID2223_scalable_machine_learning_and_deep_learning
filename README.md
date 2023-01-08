@@ -86,9 +86,12 @@ The weather data set record weather data in Kiruna in hourly intervals. However,
 ### Aurora witness data set
 The aurora witness data is collected as image data and we need to process images to detect if there are visible auroras in them. The daily pictures record the sky of Kiruna from 12:00 noon one day to 12:00 noon the next day. For example, Kiruna sky from 2021-01-05:12:00 to 2021-01-06:12:00 is shown below:
 ![image](https://github.com/NeoForNew/ID2223_scalable_machine_learning_and_deep_learning/blob/main/Project/Aurora_pic/Png/20210105.png)
-We divide the picture into 24 areas corresponding to 24 hours. And if we detect aurora from area(t:t+1), then it is assumed that the aurora can be seen at time t. The code for labelling those images is [Mark](https://github.com/NeoForNew/ID2223_scalable_machine_learning_and_deep_learning/blob/main/Project/Aurora_pic/Mark.ipynb). The labeling principle is to detect the green part in the upper part of the image and calculate the pixel proportion. If the proportion is over 1.5%, then this area is labelled as 1, otherwise 0. Those areas are processed like this:
+We divide the picture into 24 areas corresponding to 24 hours. And if we detect aurora from area(t:t+1), then it is assumed that the aurora can be seen at time t. The code for labelling those images is [Mark](https://github.com/NeoForNew/ID2223_scalable_machine_learning_and_deep_learning/blob/main/Project/Aurora_pic/Mark.ipynb). The labeling principle is to detect the green part in the top half of the image and calculate the pixel proportion. If the proportion is over 1.5%, then this area is labelled as 1, otherwise 0. We only consider top half of the image because the top half is northern. Those areas are processed like this:
+
 ![image](https://user-images.githubusercontent.com/92057239/211224445-58b15553-afe8-45be-9531-afd6224334c5.png)
 
+## Machine Learning model
+We tried several classifier models and selected the best performing decision tree model as the final model for this project.
 ## Interactive UI
 The UI is built using HuggingFace and Gradio API. The [app](https://github.com/NeoForNew/ID2223_scalable_machine_learning_and_deep_learning/blob/main/Project/advanced_app/app.py) uses KP and the weather condition as input and will output a picture to show if the aurora will occur or not.
 ![image](https://github.com/NeoForNew/ID2223_scalable_machine_learning_and_deep_learning/blob/main/Project/pic/aurora_prediction.jpg)
