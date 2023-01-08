@@ -72,8 +72,23 @@ git init && git remote add origin && git pull origin main
 clone the repo on Huggingface and try again.
 If it still doesn't work, mannually upload the model on Huggingface
 # Project
+
 ## Description
 The project focus on using an ML model to predict if the aurora will occur in Kiruna based on Kp and the weather in Kiruna. Hopsworks is used to store the feature group in the CSV file and Huggingface is used to build the interactive App. We tried different machine learning models and the decision tree is selected as our final classier which achieves an accuracy of 0.91 and an AUC score of 0.72.
+## Data Source
+In this project, in order to train the model, the weather data, Kp-index data and aurora witness data are collected from the internet. The weather data is collected from https://www.visualcrossing.com/ which is a paid database. The Kp-index data is collected from https://kp.gfz-potsdam.de/en/ which is a free geoscience database. The aurora witness data is collected from https://www.irf.se/en/ the Swedish Institute of Space Physics and the actual web offering the witness pictures is https://www2.irf.se/Observatory/?link=All-sky_sp_camera.
+## Data processing
+In this project, the weather data, Kp-index data and aurora witness data are collected. And before training the model, these data sets need to be pre-processed.
+### Kp-index data set
+For the Kp-index data set, due to the Kp-index is recorded every 3 hours, we need to process the data so that it is a Kp-index per hour. For example, the kp-indexs are recorded as 2021-01-01-03: 1, 2021-01-01-06: 2 and so on. And after being processed, the kp-indexes in the data set are recorded as 2021-01-01-03: 1, 2021-01-01-04: 1, 2021-01-01-05: 2, 2021-01-01-06: 2 and so on. In other words, when kp(t) = a and kp(t+3) = b, the data will be processed to kp(t+1) = kp(t) = a and kp(t+2) = kp(t+3) = b.
+### Weather data set
+The weather data set record weather data in Kiruna in hourly intervals. However, it contains too many features, and to simplify the model, we only keep two of them. One is visibility and the other one is "icon" which includes 'clear_day', 'clear_night', 'cloudy', 'fog', 'partly_cloudy_day', 'partly_cloudy_night', 'rain', 'snow', and 'wind'. To convert string type data to numeric data, we apply one-hot encoding to the "icon" feature.
+### Aurora witness data set
+The aurora witness data is collected as image data and we need to process images to detect if there are visible auroras in them. The daily pictures record the sky of Kiruna from 12:00 noon one day to 12:00 noon the next day. For example, Kiruna sky from 2021-01-05:12:00 to 2021-01-06:12:00 is shown below:
+![image](https://github.com/NeoForNew/ID2223_scalable_machine_learning_and_deep_learning/blob/main/Project/Aurora_pic/Png/20210105.png)
+We divide the picture into 24 areas corresponding to 24 hours. And if we detect aurora from area(t:t+1), then it is assumed that the aurora can be seen at time t. The code for labelling those images is [Mark](https://github.com/NeoForNew/ID2223_scalable_machine_learning_and_deep_learning/blob/main/Project/Aurora_pic/Mark.ipynb). The labeling principle is to detect the green part in the upper part of the image and calculate the pixel proportion. If the proportion is over 1.5%, then this area is labelled as 1, otherwise 0. Those areas are processed like this:
+![image](https://user-images.githubusercontent.com/92057239/211224445-58b15553-afe8-45be-9531-afd6224334c5.png)
+
 ## Interactive UI
 The UI is built using HuggingFace and Gradio API. The [app](https://github.com/NeoForNew/ID2223_scalable_machine_learning_and_deep_learning/blob/main/Project/advanced_app/app.py) uses KP and the weather condition as input and will output a picture to show if the aurora will occur or not.
 ![image](https://github.com/NeoForNew/ID2223_scalable_machine_learning_and_deep_learning/blob/main/Project/pic/aurora_prediction.jpg)
